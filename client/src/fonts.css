@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Titillium-Regular";
+    src: url("./assets/fonts/Titillium-Regular.otf") format("truetype");
+  }
+
+@font-face {
+    font-family: "Titillium-Thin";
+    src: url("./assets/fonts/Titillium-Thin.otf") format("truetype");
+  }
