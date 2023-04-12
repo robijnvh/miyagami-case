@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 
 // Component switches background-image every 5 seconds
-function BackgroundImageSwitcher({ images, interval = 5000, ...rest }) {
+function BackgroundImageSwitcher({ images, interval = 5000 }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -31,7 +31,6 @@ function BackgroundImageSwitcher({ images, interval = 5000, ...rest }) {
     bgPosition="center"
     h="100vh"
     w="100vw"
-    {...rest}
   />
   );
 }
