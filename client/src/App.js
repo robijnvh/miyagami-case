@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import "./App.css";
 import ImageSearcher from "./components/ImageSearcher";
 import BackgroundImageSwitcher from "./components/BackgroundImageSwitcher";
 import Landscape from "./assets/images/Landscape.jpg";

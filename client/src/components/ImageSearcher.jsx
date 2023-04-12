@@ -5,7 +5,6 @@ import ImageGrid from "./ImageGrid";
 function ImageSearcher() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
   
   const sendSearchQuery = async () => {
     const response = await fetch(`/api?query=${searchTerm}`);
@@ -13,13 +12,20 @@ function ImageSearcher() {
     setSearchResults(data.photos);
   };
 
+  // Also trigger search on pressing enter
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      sendSearchQuery();
+    }
+  }
+
   return (
     <Box
     w="70%"
     position="absolute"
     top="40%"
     left="50%"
-    transform="translate(-50%, -50%)"
+    transform="translate(-50%, -40%)"
     zIndex="1"
     backgroundColor="#000000be"
     padding="30px"
@@ -33,11 +39,12 @@ function ImageSearcher() {
         backgroundColor="white"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyPress={handleKeyPress}
         pr='4.5rem'
         />
         <InputRightElement width='4.5rem' pr='0.5rem'>
-        <Button fontFamily="Titillium-Regular" h='1.75rem' size="sm" onClick={sendSearchQuery}>
-          search
+        <Button fontFamily="Titillium-Regular" h='1.75rem' size="sm" id="search" onClick={sendSearchQuery}>
+          Search
         </Button>
         </InputRightElement>
       </InputGroup>
